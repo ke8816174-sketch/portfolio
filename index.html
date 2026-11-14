@@ -1,0 +1,1462 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Елизавета Кузнецова — Portfolio</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,500&display=swap');
+
+:root {
+    --bg: #F4F0E8;
+    --dark: #20201E;
+    --yellow: #F4D928;
+    --blue: #3158D8;
+    --coral: #F16D55;
+    --green: #A8BD9A;
+    --gray: #D9D7D1;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--dark);
+    font-family: 'Manrope', sans-serif;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+    cursor: pointer;
+}
+
+/* ОБЩИЕ ЭЛЕМЕНТЫ */
+
+.container {
+    width: min(1200px, 90%);
+    margin: auto;
+}
+
+.section {
+    padding: 110px 0;
+}
+
+.section-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 22px;
+    color: #77736B;
+}
+
+.section-title {
+    font-size: clamp(38px, 6vw, 76px);
+    font-weight: 800;
+    letter-spacing: -4px;
+    line-height: .98;
+}
+
+.accent {
+    color: var(--blue);
+}
+
+.small-text {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #68665F;
+}
+
+/* НАВИГАЦИЯ */
+
+header {
+    padding: 22px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #DCD8CF;
+}
+
+.logo {
+    font-size: 19px;
+    font-weight: 800;
+}
+
+.nav {
+    display: flex;
+    gap: 30px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.nav a:hover {
+    color: var(--blue);
+}
+
+.nav-contact {
+    border: 1px solid var(--dark);
+    border-radius: 30px;
+    padding: 10px 18px;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 680px;
+    padding: 80px 5% 90px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.hero-content {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+.hero-top span {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.hero h1 {
+    font-size: clamp(65px, 12vw, 150px);
+    line-height: .83;
+    letter-spacing: -10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 span {
+    color: var(--blue);
+    display: block;
+    margin-left: 12%;
+}
+
+.hero-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-top: 65px;
+    gap: 30px;
+}
+
+.hero-description {
+    max-width: 300px;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.hero-quote {
+    max-width: 280px;
+    font-family: 'Playfair Display', serif;
+    font-size: 21px;
+    font-style: italic;
+    text-align: right;
+}
+
+/* ФОТО */
+
+.photo-placeholder {
+    background: var(--gray);
+    border: 1px solid #C8C5BD;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #858179;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    overflow: hidden;
+    position: relative;
+}
+
+.hero-photo {
+    position: absolute;
+    width: 190px;
+    height: 245px;
+    right: 13%;
+    top: 100px;
+    transform: rotate(5deg);
+    border: 7px solid white;
+    box-shadow: 0 10px 30px #00000015;
+    z-index: 1;
+}
+
+.photo-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ПЛАВАЮЩИЕ ЭЛЕМЕНТЫ */
+
+.bubble {
+    position: absolute;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 800;
+    font-size: 12px;
+    text-align: center;
+    animation: float 4s ease-in-out infinite;
+    z-index: 3;
+}
+
+.bubble-yellow {
+    background: var(--yellow);
+    width: 90px;
+    height: 90px;
+    top: 30px;
+    left: 43%;
+}
+
+.bubble-blue {
+    background: var(--blue);
+    color: white;
+    width: 105px;
+    height: 105px;
+    bottom: 115px;
+    right: 5%;
+    animation-delay: .7s;
+}
+
+.bubble-coral {
+    background: var(--coral);
+    width: 75px;
+    height: 75px;
+    top: 40%;
+    left: 3%;
+    animation-delay: 1.2s;
+}
+
+.bubble-green {
+    background: var(--green);
+    width: 83px;
+    height: 83px;
+    bottom: 30px;
+    left: 47%;
+    animation-delay: .4s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translate(0, 0) rotate(-5deg); }
+    25% { transform: translate(8px, -12px) rotate(5deg); }
+    50% { transform: translate(-5px, 8px) rotate(-8deg); }
+    75% { transform: translate(10px, 5px) rotate(4deg); }
+}
+
+/* ABOUT */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: center;
+}
+
+.about-text {
+    font-size: 19px;
+    line-height: 1.8;
+    max-width: 550px;
+}
+
+.about-text strong {
+    color: var(--blue);
+}
+
+.about-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.tag {
+    border: 1px solid var(--dark);
+    padding: 9px 16px;
+    border-radius: 30px;
+    font-size: 12px;
+}
+
+.about-photo {
+    height: 430px;
+    transform: rotate(2deg);
+}
+
+/* ВИЗУАЛЬНАЯ ПЕРЕБИВКА */
+
+.visual-break {
+    background: var(--yellow);
+    padding: 75px 5%;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.visual-break p {
+    font-size: clamp(35px, 7vw, 85px);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -4px;
+    text-transform: uppercase;
+}
+
+.visual-break span {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--blue);
+}
+
+.break-note {
+    margin-top: 30px;
+    font-size: 12px;
+}
+
+/* ОБРАЗОВАНИЕ И ПРОЕКТЫ */
+
+.background-section {
+    background: #E9E5DC;
+}
+
+.background-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 55px;
+}
+
+.info-card {
+    border: 1px solid #C8C3B9;
+    padding: 28px;
+    background: var(--bg);
+    position: relative;
+}
+
+.info-card:nth-child(2) {
+    background: var(--green);
+}
+
+.info-card:nth-child(3) {
+    background: var(--yellow);
+}
+
+.info-card:nth-child(4) {
+    background: var(--coral);
+}
+
+.info-card h3 {
+    font-size: 21px;
+    margin-bottom: 12px;
+}
+
+.info-card .year {
+    font-size: 12px;
+    opacity: .65;
+    margin-bottom: 18px;
+}
+
+.info-card .card-more {
+    display: none;
+    margin-top: 18px;
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+.info-card.active .card-more {
+    display: block;
+}
+
+.info-card button {
+    margin-top: 20px;
+    border: 1px solid var(--dark);
+    background: transparent;
+    padding: 10px 17px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.info-card button:hover {
+    background: var(--dark);
+    color: white;
+}
+
+/* ОПЫТ */
+
+.experience-list {
+    margin-top: 55px;
+    border-top: 1px solid #C8C3B9;
+}
+
+.experience-item {
+    display: grid;
+    grid-template-columns: 150px 1fr 1fr;
+    gap: 30px;
+    padding: 32px 0;
+    border-bottom: 1px solid #C8C3B9;
+    align-items: start;
+}
+
+.experience-date {
+    font-size: 12px;
+    color: #77736B;
+}
+
+.experience-item h3 {
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.experience-item p {
+    font-size: 13px;
+    line-height: 1.7;
+    color: #68665F;
+}
+
+.experience-number {
+    font-size: 45px;
+    font-weight: 800;
+    color: var(--blue);
+    opacity: .65;
+}
+
+/* БЕГУЩАЯ СТРОКА */
+
+.marquee {
+    background: var(--blue);
+    color: white;
+    overflow: hidden;
+    padding: 23px 0;
+    white-space: nowrap;
+}
+
+.marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 20s linear infinite;
+}
+
+.marquee span {
+    font-size: clamp(50px, 8vw, 100px);
+    font-weight: 800;
+    padding-right: 40px;
+    letter-spacing: -4px;
+}
+
+@keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+/* КЕЙСЫ */
+
+.cases-intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 20px;
+    margin-bottom: 45px;
+}
+
+.cases-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 45px 25px;
+}
+
+.case-card {
+    cursor: pointer;
+}
+
+.case-image {
+    height: 320px;
+    margin-bottom: 20px;
+    position: relative;
+    transition: .3s;
+}
+
+.case-card:nth-child(1) .case-image {
+    background: #D9D7D1;
+}
+
+.case-card:nth-child(2) .case-image {
+    background: #D9D7D1;
+}
+
+.case-card:nth-child(3) .case-image {
+    background: #D9D7D1;
+}
+
+.case-card:hover .case-image {
+    transform: translateY(-7px) rotate(-1deg);
+}
+
+.case-index {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    background: var(--yellow);
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.case-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.case-info h3 {
+    font-size: 21px;
+}
+
+.case-info p {
+    font-size: 12px;
+    color: #77736B;
+    margin-top: 7px;
+}
+
+.case-open {
+    width: 45px;
+    height: 45px;
+    background: var(--yellow);
+    border: none;
+    border-radius: 50%;
+    font-size: 23px;
+    transition: .3s;
+}
+
+.case-card:hover .case-open {
+    transform: rotate(45deg);
+    background: var(--coral);
+}
+
+/* ОКНО КЕЙСА */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: #20201EAA;
+    z-index: 100;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: var(--bg);
+    width: min(750px, 100%);
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 40px;
+    position: relative;
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    border: none;
+    background: none;
+    font-size: 30px;
+}
+
+.modal-content h2 {
+    font-size: 34px;
+    margin-bottom: 20px;
+}
+
+.modal-content h3 {
+    margin: 25px 0 8px;
+    font-size: 15px;
+    color: var(--blue);
+    text-transform: uppercase;
+}
+
+.modal-content p {
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.modal-stats {
+    background: var(--yellow);
+    padding: 20px;
+    margin-top: 25px;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+/* НАВЫКИ */
+
+.skills-section {
+    background: var(--dark);
+    color: white;
+}
+
+.skills-section .section-label {
+    color: #BDBBB4;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-top: 50px;
+}
+
+.skills-column h3 {
+    font-size: 23px;
+    margin-bottom: 25px;
+    color: var(--yellow);
+}
+
+.skill {
+    padding: 15px 0;
+    border-bottom: 1px solid #55534E;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.skill span:last-child {
+    color: #AAA79F;
+    font-size: 12px;
+}
+
+.hobbies {
+    margin-top: 70px;
+    padding: 30px;
+    background: var(--blue);
+    font-size: 19px;
+    line-height: 1.8;
+}
+
+/* КОНТАКТЫ */
+
+.contacts {
+    background: var(--coral);
+    padding: 100px 5%;
+}
+
+.contacts h2 {
+    font-size: clamp(55px, 10vw, 120px);
+    letter-spacing: -7px;
+    line-height: .9;
+    margin-bottom: 60px;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.contact-item {
+    padding: 20px 0;
+    border-top: 1px solid #20201E66;
+}
+
+.contact-item span {
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.contact-item a {
+    font-size: clamp(16px, 2.5vw, 23px);
+    font-weight: 700;
+}
+
+.contact-item a:hover {
+    color: white;
+}
+
+/* FOOTER */
+
+footer {
+    background: var(--dark);
+    color: white;
+    padding: 30px 5%;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    font-size: 12px;
+}
+
+footer a {
+    color: var(--yellow);
+}
+
+/* АДАПТИВ */
+
+@media (max-width: 750px) {
+    .nav {
+        display: none;
+    }
+
+    .section {
+        padding: 75px 0;
+    }
+
+    .hero {
+        min-height: 700px;
+        padding-top: 70px;
+    }
+
+    .hero h1 {
+        font-size: clamp(55px, 14vw, 100px);
+        letter-spacing: -5px;
+    }
+
+    .hero-photo {
+        width: 120px;
+        height: 160px;
+        right: 8%;
+        top: 180px;
+    }
+
+    .bubble-yellow {
+        left: 65%;
+    }
+
+    .bubble-green {
+        left: 75%;
+    }
+
+    .hero-bottom {
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .hero-quote {
+        text-align: left;
+    }
+
+    .about-grid,
+    .background-grid,
+    .cases-grid,
+    .skills-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-photo {
+        height: 330px;
+    }
+
+    .experience-item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .experience-number {
+        font-size: 30px;
+    }
+
+    .cases-intro {
+        display: block;
+    }
+
+    .case-image {
+        height: 240px;
+    }
+
+    .contacts h2 {
+        letter-spacing: -4px;
+    }
+
+    .modal-content {
+        padding: 35px 22px;
+    }
+
+    footer {
+        flex-direction: column;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- НАВИГАЦИЯ -->
+
+<header>
+    <a href="#home" class="logo">LIZA.K®</a>
+
+    <nav class="nav">
+        <a href="#about">Обо мне</a>
+        <a href="#background">Образование</a>
+        <a href="#experience">Опыт</a>
+        <a href="#cases">Кейсы</a>
+        <a href="#skills">Навыки</a>
+    </nav>
+
+    <a href="#contacts" class="nav-contact">Связаться ↗</a>
+</header>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="bubble bubble-yellow">IDEAS</div>
+    <div class="bubble bubble-blue">DIGITAL</div>
+    <div class="bubble bubble-coral">CONTENT</div>
+    <div class="bubble bubble-green">VISUAL</div>
+
+    <div class="photo-placeholder hero-photo">
+        МОЁ ФОТО
+    </div>
+
+    <div class="hero-content">
+
+        <div class="hero-top">
+            <span>PORTFOLIO / 2026</span>
+            <span>CREATIVE MIND — DIGITAL WORLD</span>
+        </div>
+
+        <h1>
+            ЕЛИЗАВЕТА
+            <span>КУЗНЕЦОВА</span>
+        </h1>
+
+        <div class="hero-bottom">
+
+            <p class="hero-description">
+                Контент-креатор.
+                Создаю визуальные истории,
+                упаковываю смыслы
+                и превращаю идеи в коммуникацию.
+            </p>
+
+            <p class="hero-quote">
+                «В каждой идее есть
+                что-то большее,
+                чем просто картинка».
+            </p>
+
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+
+<section class="section" id="about">
+    <div class="container">
+
+        <p class="section-label">01 / ABOUT ME</p>
+
+        <div class="about-grid">
+
+            <div>
+                <h2 class="section-title">
+                    ПРИВЕТ,<br>
+                    Я <span class="accent">ЛИЗА!</span>
+                </h2>
+
+                <div class="about-tags">
+                    <span class="tag">Content creation</span>
+                    <span class="tag">Digital</span>
+                    <span class="tag">Visual design</span>
+                    <span class="tag">Creative ideas</span>
+                </div>
+            </div>
+
+            <div>
+                <p class="about-text">
+                    Я контент-креатор с опытом работы
+                    в digital-проектах, социальных сетях
+                    и визуальных коммуникациях.
+
+                    <br><br>
+
+                    Мне интересно создавать и упаковывать
+                    смыслы: от <strong>контент-стратегии
+                    и текстов до визуальных решений.</strong>
+
+                    <br><br>
+
+                    В работе соединяю креативность,
+                    понимание аудитории и внимание
+                    к деталям. Люблю искать новые подходы,
+                    изучать инструменты и превращать
+                    идеи в работающий контент.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ПЕРЕБИВКА -->
+
+<section class="visual-break">
+    <p>
+        ИДЕИ<br>
+        ОБРЕТАЮТ <span>ФОРМУ.</span>
+    </p>
+    <div class="break-note">
+        FROM THINKING TO CREATING — THAT'S MY PROCESS.
+    </div>
+</section>
+
+<!-- ОБРАЗОВАНИЕ И ПРОЕКТЫ -->
+
+<section class="section background-section" id="background">
+    <div class="container">
+
+        <p class="section-label">02 / BACKGROUND</p>
+
+        <h2 class="section-title">
+            МОЙ <span class="accent">ПУТЬ</span>
+        </h2>
+
+        <p class="small-text" style="margin-top:20px;max-width:500px;">
+            Образование, опыт и проекты, которые формируют
+            мой профессиональный взгляд.
+        </p>
+
+        <div class="background-grid">
+
+            <article class="info-card">
+                <p class="year">2024 — 2028</p>
+                <h3>Челябинский государственный университет</h3>
+                <p>Факультет журналистики</p>
+
+                <div class="card-more">
+                    Направление подготовки:
+                    реклама и связи с общественностью.
+                </div>
+
+                <button onclick="toggleInfo(this)">
+                    Подробнее +
+                </button>
+            </article>
+
+            <article class="info-card">
+                <p class="year">PROJECT / 01</p>
+                <h3>МедиаИмпульс</h3>
+                <p>Медиацентр</p>
+
+                <div class="card-more">
+                    Контент-креатор. Здесь можно разместить
+                    описание деятельности, визуальные
+                    материалы и примеры публикаций.
+                </div>
+
+                <button onclick="toggleInfo(this)">
+                    Подробнее +
+                </button>
+            </article>
+
+            <article class="info-card">
+                <p class="year">PROJECT / 02</p>
+                <h3>СОЦИУМ</h3>
+                <p>Социально-гуманитарный клуб</p>
+
+                <div class="card-more">
+                    Создание контента и разработка
+                    офлайн-материалов: бейджи, листовки,
+                    мерч и другие элементы коммуникации.
+                </div>
+
+                <button onclick="toggleInfo(this)">
+                    Подробнее +
+                </button>
+            </article>
+
+            <article class="info-card">
+                <p class="year">INTERESTS</p>
+                <h3>Новые направления</h3>
+                <p>Постоянное развитие</p>
+
+                <div class="card-more">
+                    Изучение китайского языка, современных
+                    трендов дизайна, нейросетей и новых
+                    инструментов для создания контента.
+                </div>
+
+                <button onclick="toggleInfo(this)">
+                    Подробнее +
+                </button>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- ОПЫТ -->
+
+<section class="section" id="experience">
+    <div class="container">
+
+        <p class="section-label">03 / EXPERIENCE</p>
+
+        <h2 class="section-title">
+            ОПЫТ <span class="accent">РАБОТЫ</span>
+        </h2>
+
+        <div class="experience-list">
+
+            <article class="experience-item">
+                <div class="experience-date">06 — 07 / 2025</div>
+                <div>
+                    <h3>Молодёжный театр</h3>
+                    <p>Контент-креатор</p>
+                </div>
+                <div>
+                    <p>
+                        Создание визуального контента для социальных
+                        сетей, фотосъёмка спектаклей, видеоклипы,
+                        инфографика, афиши и офлайн-материалы.
+                    </p>
+                </div>
+            </article>
+
+            <article class="experience-item">
+                <div class="experience-date">08 — 11 / 2025</div>
+                <div>
+                    <h3>31 канал</h3>
+                    <p>Бизнес-премия «Сделано в Челябинске»</p>
+                </div>
+                <div>
+                    <p>
+                        Контент-креатор и SMM-менеджер.
+                        Редизайн сообщества, визуальная стратегия,
+                        инфографика и контент-план.
+                    </p>
+                </div>
+            </article>
+
+            <article class="experience-item">
+                <div class="experience-date">10 / 2025 — 04 / 2026</div>
+                <div>
+                    <h3>Школа What's Up</h3>
+                    <p>Контент-креатор и SMM-менеджер</p>
+                </div>
+                <div>
+                    <p>
+                        Разработка и реализация визуальной стратегии,
+                        создание контента, коротких видео,
+                        инфографики и обложек.
+                    </p>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- БЕГУЩАЯ СТРОКА -->
+
+<div class="marquee">
+    <div class="marquee-track">
+        <span>КЕЙСЫ ✳ КЕЙСЫ ✳ КЕЙСЫ ✳ КЕЙСЫ ✳</span>
+        <span>КЕЙСЫ ✳ КЕЙСЫ ✳ КЕЙСЫ ✳ КЕЙСЫ ✳</span>
+    </div>
+</div>
+
+<!-- КЕЙСЫ -->
+
+<section class="section" id="cases">
+    <div class="container">
+
+        <div class="cases-intro">
+            <div>
+                <p class="section-label">04 / SELECTED PROJECTS</p>
+                <h2 class="section-title">
+                    МОИ <span class="accent">РАБОТЫ</span>
+                </h2>
+            </div>
+
+            <p class="small-text">
+                Идеи, решения и результаты.<br>
+                Выбери проект, чтобы узнать больше ↗
+            </p>
+        </div>
+
+        <div class="cases-grid">
+
+            <!-- КЕЙС 1 -->
+
+            <article class="case-card" onclick="openCase(0)">
+                <div class="photo-placeholder case-image">
+                    <span class="case-index">01 / 03</span>
+                    МЕСТО ДЛЯ РАБОТ
+                </div>
+
+                <div class="case-info">
+                    <div>
+                        <h3>Сделано в Челябинске</h3>
+                        <p>Редизайн и развитие сообщества</p>
+                    </div>
+                    <button class="case-open">↗</button>
+                </div>
+            </article>
+
+            <!-- КЕЙС 2 -->
+
+            <article class="case-card" onclick="openCase(1)">
+                <div class="photo-placeholder case-image">
+                    <span class="case-index">02 / 03</span>
+                    МЕСТО ДЛЯ РАБОТ
+                </div>
+
+                <div class="case-info">
+                    <div>
+                        <h3>What's Up</h3>
+                        <p>Перезапуск визуальной стратегии</p>
+                    </div>
+                    <button class="case-open">↗</button>
+                </div>
+            </article>
+
+            <!-- КЕЙС 3 -->
+
+            <article class="case-card" onclick="openCase(2)">
+                <div class="photo-placeholder case-image">
+                    <span class="case-index">03 / 03</span>
+                    МЕСТО ДЛЯ РАБОТ
+                </div>
+
+                <div class="case-info">
+                    <div>
+                        <h3>Молодёжный театр</h3>
+                        <p>Контент и визуальные коммуникации</p>
+                    </div>
+                    <button class="case-open">↗</button>
+                </div>
+            </article>
+
+            <!-- ДОПОЛНИТЕЛЬНЫЙ БЛОК -->
+
+            <article class="case-card">
+                <div class="photo-placeholder case-image">
+                    <span class="case-index">COMING SOON</span>
+                    НОВЫЕ ПРОЕКТЫ
+                </div>
+
+                <div class="case-info">
+                    <div>
+                        <h3>Next project</h3>
+                        <p>Продолжение следует...</p>
+                    </div>
+                    <button class="case-open">✳</button>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- ОКНО С ПОДРОБНОСТЯМИ -->
+
+<div class="modal" id="caseModal" onclick="closeOutside(event)">
+    <div class="modal-content">
+
+        <button class="modal-close" onclick="closeCase()">×</button>
+
+        <p class="section-label" id="modal-label">CASE STUDY</p>
+        <h2 id="modal-title"></h2>
+
+        <div class="photo-placeholder" style="height:180px;margin:20px 0;">
+            МЕСТО ДЛЯ ДОПОЛНИТЕЛЬНЫХ РАБОТ
+        </div>
+
+        <h3>Задача</h3>
+        <p id="modal-task"></p>
+
+        <h3>Что сделано</h3>
+        <p id="modal-work"></p>
+
+        <h3>Результат</h3>
+        <p id="modal-result"></p>
+
+        <div class="modal-stats" id="modal-stats"></div>
+
+        <p style="margin-top:25px;">
+            <a id="modal-link" href="#" target="_blank"
+               style="color:#3158D8;font-weight:700;">
+               Перейти к проекту ↗
+            </a>
+        </p>
+    </div>
+</div>
+
+<!-- НАВЫКИ -->
+
+<section class="section skills-section" id="skills">
+    <div class="container">
+
+        <p class="section-label">05 / MY TOOLKIT</p>
+
+        <h2 class="section-title">
+            МОЙ <span style="color:var(--yellow)">TOOLKIT</span>
+        </h2>
+
+        <div class="skills-grid">
+
+            <div class="skills-column">
+                <h3>TECHNICAL SKILLS</h3>
+
+                <div class="skill">
+                    <span>Figma</span>
+                    <span>Advanced</span>
+                </div>
+
+                <div class="skill">
+                    <span>Adobe Photoshop</span>
+                    <span>Intermediate</span>
+                </div>
+
+                <div class="skill">
+                    <span>UX/UI principles</span>
+                    <span>Intermediate</span>
+                </div>
+
+                <div class="skill">
+                    <span>Adaptive design</span>
+                    <span>Basic</span>
+                </div>
+
+                <div class="skill">
+                    <span>HTML / CSS</span>
+                    <span>Basic</span>
+                </div>
+
+                <div class="skill">
+                    <span>Tilda</span>
+                    <span>Basic</span>
+                </div>
+
+                <div class="skill">
+                    <span>Print layouts</span>
+                    <span>Basic</span>
+                </div>
+            </div>
+
+            <div class="skills-column">
+                <h3>SOFT SKILLS</h3>
+
+                <div class="skill">
+                    <span>Коммуникация</span>
+                    <span>01</span>
+                </div>
+
+                <div class="skill">
+                    <span>Внимательность к деталям</span>
+                    <span>02</span>
+                </div>
+
+                <div class="skill">
+                    <span>Тайм-менеджмент</span>
+                    <span>03</span>
+                </div>
+
+                <div class="skill">
+                    <span>Креативность</span>
+                    <span>04</span>
+                </div>
+
+                <div class="skill">
+                    <span>Обучаемость</span>
+                    <span>05</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="hobbies">
+            <strong>BEYOND WORK ✳</strong><br>
+            Китайский язык · Современный дизайн ·
+            Нейросети · Визуальные тренды ·
+            Поиск новых идей и инструментов.
+        </div>
+
+    </div>
+</section>
+
+<!-- КОНТАКТЫ -->
+
+<section class="contacts" id="contacts">
+
+    <p class="section-label">06 / GET IN TOUCH</p>
+
+    <h2>
+        ДАВАЙ<br>
+        СОЗДАВАТЬ!
+    </h2>
+
+    <div class="contact-grid">
+
+        <div class="contact-item">
+            <span>EMAIL</span>
+            <a href="mailto:lizo4kakuxnetzova@yandex.ru">
+                lizo4kakuxnetzova@yandex.ru
+            </a>
+        </div>
+
+        <div class="contact-item">
+            <span>PHONE</span>
+            <a href="tel:+79000208449">
+                +7 900 020-84-49
+            </a>
+        </div>
+
+        <div class="contact-item">
+            <span>TELEGRAM</span>
+            <a href="https://t.me/Liza_xxoo" target="_blank">
+                @Liza_xxoo ↗
+            </a>
+        </div>
+
+        <div class="contact-item">
+            <span>VKONTAKTE</span>
+            <a href="https://vk.com/liziiiiiks" target="_blank">
+                VK PROFILE ↗
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+    <span>© 2026 ELIZAVETA KUZNETSOVA</span>
+    <a href="#home">BACK TO TOP ↑</a>
+    <span>MADE WITH IDEAS ✳</span>
+</footer>
+
+
+<script>
+
+// РАСКРЫВАЮЩИЕСЯ КАРТОЧКИ
+
+function toggleInfo(button) {
+    const card = button.closest('.info-card');
+    card.classList.toggle('active');
+
+    button.textContent = card.classList.contains('active')
+        ? 'Свернуть −'
+        : 'Подробнее +';
+}
+
+
+// ДАННЫЕ КЕЙСОВ
+
+const cases = [
+    {
+        title: 'Сделано в Челябинске',
+        task: 'Восстановить активность сообщества бизнес-премии, которое не велось несколько лет. Обновить визуальный образ и сделать контент современным.',
+        work: 'Провела полный редизайн сообщества: шапка, обложки, оформление постов. Разработала стиль инфографики и анонсов, создала контент-план и наполнила паблик актуальным контентом.',
+        result: 'За 3 месяца работы суммарные просмотры контента достигли 288 900, охваты составили 35 100. Привлечено 100 новых подписчиков.',
+        stats: '288 900 просмотров · 35 100 охват · +100 подписчиков',
+        link: 'https://vk.com/sdelanovche?from=group'
+    },
+    {
+        title: "What's Up",
+        task: 'Решить проблему однотипного контента, состоявшего преимущественно из фотографий и текстов. Сделать визуал современным и вовлекающим.',
+        work: 'Пересобрала визуальную стратегию. Ввела короткие вертикальные видео с актуальными трендами, разработала инфографику и обложки.',
+        result: 'За 5 месяцев совокупные просмотры контента достигли 834 900, охваты — 30 000. Прирост новой аудитории составил более 400 подписчиков.',
+        stats: '834 900 просмотров · 30 000 охват · +400 подписчиков',
+        link: ''
+    },
+    {
+        title: 'Челябинский государственный Молодёжный театр',
+        task: 'Создать разноплановый визуальный контент для социальных сетей: фотографии спектаклей, видео и инфографику.',
+        work: 'Разработала визуальную концепцию, проводила фотосъёмку спектаклей, монтировала видеоклипы, создавала инфографику и адаптировала материалы под посты, stories и клипы.',
+        result: 'Публикации с визуальным контентом стабильно набирали более 5 000 просмотров и 100 лайков.',
+        stats: '5 000+ просмотров · 100+ лайков',
+        link: 'https://vk.com/chelgmt?from=group'
+    }
+];
+
+function openCase(index) {
+    const item = cases[index];
+
+    document.getElementById('modal-title').textContent = item.title;
+    document.getElementById('modal-task').textContent = item.task;
+    document.getElementById('modal-work').textContent = item.work;
+    document.getElementById('modal-result').textContent = item.result;
+    document.getElementById('modal-stats').textContent = item.stats;
+
+    const link = document.getElementById('modal-link');
+
+    if (item.link) {
+        link.href = item.link;
+        link.style.display = 'inline';
+    } else {
+        link.style.display = 'none';
+    }
+
+    document.getElementById('caseModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeCase() {
+    document.getElementById('caseModal').classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+function closeOutside(event) {
+    if (event.target.id === 'caseModal') {
+        closeCase();
+    }
+}
+
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') closeCase();
+});
+
+</script>
+
+</body>
+</html>
